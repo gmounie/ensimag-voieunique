@@ -3,9 +3,6 @@
 #include "ensivoies.h"
 #include "trainmonitor.h"
 
-void (*entrees[2])()= { entreeEO, entreeOE };
-void (*sorties[2])()= { sortieEO, sortieOE };
-
 void *train(void *arg) {
     struct Trajet *trajet= (struct Trajet *) arg;
 
@@ -36,7 +33,7 @@ void *train(void *arg) {
     if (trajet->sens == EO)
 	sortieEO();
     else
-	sortieEO();
+	sortieOE();
 
     return 0;
 }
