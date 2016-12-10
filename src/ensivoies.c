@@ -45,24 +45,38 @@ struct Trajet s1[] = { {1, 0, OE, 2},
 		       {5, 1, OE, 2}, {0} };
 struct Trajet s2[] = { {1, 0, OE, 2},
 		       {2, 1, EO, 2},
-		       {3, 0, OE, 2}, {0}};
+		       {3, 3, OE, 2}, {0}};
 struct Trajet s3[] = { {1, 0, OE, 2},
-		       {2, 0, OE, 1},
-		       {3, 0, OE, 2},
-		       {4, 0, OE, 1}, {0} };
+		       {2, 0, OE, 2},
+		       {3, 0, EO, 2},
+		       {4, 0, EO, 2},
+                       {5, 1, OE, 2},
+		       {6, 1, OE, 2},
+		       {7, 1, EO, 2},
+		       {8, 1, EO, 2},
+		       {0} };
 struct Trajet s4[] = { {1, 0, OE, 2},
 		       {2, 0, OE, 2},
 		       {3, 0, OE, 2},
 		       {4, 1, EO, 2},
 		       {5, 1, EO, 2},
 		       {6, 1, EO, 2}, {0} };
+struct Trajet s5[] = { {1, 0, OE, 2},
+		       {2, 1, EO, 2},
+		       {3, 3, OE, 2},
+		       {4, 5, EO, 2},
+                       {5, 7, OE, 2},
+		       {6, 9, EO, 2},
+		       {7, 11, OE, 2},
+		       {8, 13, EO, 2},
+		       {0} };
 
 
 
 void joueScenario() {
     int nbtrains=0;
-    struct Trajet *scenario[]= { s0, s1, s2, s3, s4, 0};
-    assert(SCENARIO < 5);
+    struct Trajet *scenario[]= { s0, s1, s2, s3, s4, s5, 0};
+    assert(SCENARIO < 6);
     
     while(scenario[SCENARIO][nbtrains].numero != 0)
 	nbtrains++;
@@ -110,7 +124,8 @@ int main(int argc, char **argv) {
 	    break;
 	default:
 	    fprintf(stderr,
-		    "Usage: %s [-s] [-v] [-s SCENARIO]\n", argv[0]);
+		    "Usage: %s [-d DELAI (default: %d)] [-v] [-s SCENARIO (default: %d)]\n",
+		    argv[0], DELAI, SCENARIO);
 	    exit(EXIT_FAILURE);
 	}
     }
