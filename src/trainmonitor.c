@@ -1,4 +1,5 @@
 #include <pthread.h>
+#include <assert.h>
 #include "train.h"
 #include "ensivoies.h"
 #include "trainmonitor.h"
@@ -37,6 +38,7 @@ void entreeEO() {
 	pthread_cond_wait(&cEO, &m);
 
     if (sens != EO) {
+	assert(nb == 0);
 	sens = EO;
 	pthread_cond_broadcast(& cEO);
     }
