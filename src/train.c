@@ -24,17 +24,19 @@ void *train(void *arg) {
     else
 	entreeOE();
 
-    printf("Train %d: voie unique, sens %d pendant %d us\n", trajet->numero,
+    printf("Train %d: voie unique, entree, sens %d, trajet pendant %d us\n",
+	   trajet->numero,
 	   trajet->sens, trajet->duree_trajet*DELAI);
+
     usleep(trajet->duree_trajet * DELAI);
+
+    printf("Train %d: sortie, sens %d\n", trajet->numero,
+	   trajet->sens);
     
     if (trajet->sens == EO)
 	sortieEO();
     else
 	sortieEO();
-    
-    printf("Train %d: sortie, sens %d\n", trajet->numero,
-	   trajet->sens);
 
     return 0;
 }
