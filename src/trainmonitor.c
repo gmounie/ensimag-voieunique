@@ -4,11 +4,13 @@
 #include "ensivoies.h"
 #include "trainmonitor.h"
 
+// variable indiquant le sens courant
+// a maintenir à la bonne valeur
+int sens= -1;
 // Ajouter votre code ici
 static pthread_mutex_t m= PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t cOE= PTHREAD_COND_INITIALIZER;
 static pthread_cond_t cEO= PTHREAD_COND_INITIALIZER;
-static int sens= -1;
 static int nb= 0;
 
 void initThreadSynchro() {
