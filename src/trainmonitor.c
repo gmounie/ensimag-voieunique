@@ -7,6 +7,7 @@
 // variable indiquant le sens courant
 // a maintenir à la bonne valeur
 int sens= -1;
+// Ajouter votre code ici
 
 void initThreadSynchro() {
     // Ajouter votre code ici
