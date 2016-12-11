@@ -16,4 +16,6 @@ void sortieEO();
 void entreeOE();
 void sortieOE();
 
+extern int sens;
+
 #endif

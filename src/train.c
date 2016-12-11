@@ -20,13 +20,15 @@ void *train(void *arg) {
 	entreeEO();
     else
 	entreeOE();
+    assert(sens == trajet->sens);
 
     printf("Train %d: voie unique, entree, sens %d, trajet pendant %d us\n",
 	   trajet->numero,
 	   trajet->sens, trajet->duree_trajet*DELAI);
 
     usleep(trajet->duree_trajet * DELAI);
-
+    
+    assert(sens == trajet->sens);
     printf("Train %d: sortie, sens %d\n", trajet->numero,
 	   trajet->sens);
     
